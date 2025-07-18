@@ -23,11 +23,11 @@ const mailOptions = {
            Fill your study log at <a href="${process.env.STUDY_LOG_URL}">${process.env.STUDY_LOG_URL}</a>`,
 };
 
-cron.schedule('23 10 * * *', () => {
+cron.schedule('30 10 * * *', () => {
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return console.log('Error occurred while sending email:', error);
         }
         console.log('Email sent successfully:', info.response);
-    });
+    }, { timezone: 'Asia/Kolkata' });
 });
